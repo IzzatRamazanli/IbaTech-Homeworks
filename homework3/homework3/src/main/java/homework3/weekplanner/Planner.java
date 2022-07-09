@@ -16,7 +16,7 @@ public class Planner {
             String day = scanner.nextLine();
 
             if (day.startsWith("change")) {
-                day = textFormatter(day.substring(7)); //extract day from input
+                day = textFormatter(day.trim().substring(7)); //extract day from input
                 changePlan(plans, day); //assigning new plan to day
                 continue;
             } else {
