@@ -13,9 +13,9 @@ public class Planner {
 
         while (check) {
             System.out.print("Enter day of Week: ");
-            String day = scanner.nextLine();
+            String day = scanner.nextLine().trim(); // remove spaces from user input
 
-            if (day.startsWith("change")) {
+            if (day.contains("change")) {
                 day = textFormatter(day.trim().substring(7)); //extract day from input
                 changePlan(plans, day); //assigning new plan to day
                 continue;
@@ -29,9 +29,7 @@ public class Planner {
             } else {
                 switchPlans(plans, day);
             }
-
         }
-
     }
 
     public static void plansFiller(String[][] plans) {
@@ -103,12 +101,13 @@ public class Planner {
     }//show all plans at once
 
     public static String textFormatter(String text) {
-        text = text.substring(0, 1).toUpperCase() + text.substring(1).toLowerCase().trim();
+        text = text.substring(0, 1).toUpperCase() + text.substring(1).toLowerCase();
         return text;
     }
 
     public static String[][] changePlan(String[][] plans, String day) {
         Scanner scanner = new Scanner(System.in);
+        day = textFormatter(day.trim()); //formatting text to perform task successfully
         for (int i = 0; i < plans.length; i++) {
             for (int j = 0; j < plans[i].length; j++) {
                 if (day.equals(plans[i][j])) {
@@ -118,7 +117,7 @@ public class Planner {
             }
         }
         System.out.print("Please, input new tasks for " + day + ": ");
-        String newPlan = scanner.nextLine();
+        String newPlan = scanner.nextLine().trim();
 
         for (int i = 0; i < plans.length; i++) {
             for (int j = 0; j < plans[i].length; j++) {
