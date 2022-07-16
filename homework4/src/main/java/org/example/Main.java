@@ -15,7 +15,7 @@ public class Main {
         pet.trickLevel = 45;
         pet.habits = new String[]{"eating", "sleeping", "playing with bone"};
 
-        Human father = new Human("Jone", "Maxwell", 1973);
+        Human father = new Human("John", "Maxwell", 1973);
         Human mother = new Human("Jane", "Maxwell", 1977);
 
         Human child = new Human("Mike", "Maxwell", 2002,
