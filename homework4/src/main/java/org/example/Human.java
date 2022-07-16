@@ -72,9 +72,9 @@ public class Human {
 
     public void feedPet(boolean feedTime) {
         if (feedTime) {
-            System.out.println("Hm... I will feed " + this.name + "'s " + pet.nickName);
+            System.out.println("Hm... I will feed " + pet.nickName);
         } else {
-            System.out.println("I think Jack is not hungry.");
+            System.out.println("I think" + pet.nickName + " is not hungry.");
         }
     }
 }
