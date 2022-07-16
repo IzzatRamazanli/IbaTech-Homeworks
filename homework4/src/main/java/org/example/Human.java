@@ -67,14 +67,14 @@ public class Human {
         } else {
             slyLevel = "almost not sly";
         }
-        System.out.println("I have a " + pet.species + ", he is " + pet.age + " years old," + slyLevel);
+        System.out.println("I have a " + pet.species + ", he is " + pet.age + " years old, " + slyLevel);
     }
 
     public void feedPet(boolean feedTime) {
         if (feedTime) {
             System.out.println("Hm... I will feed " + pet.nickName);
         } else {
-            System.out.println("I think" + pet.nickName + " is not hungry.");
+            System.out.println("I think " + pet.nickName + " is not hungry.");
         }
     }
 }
