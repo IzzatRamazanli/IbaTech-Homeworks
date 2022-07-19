@@ -31,7 +31,7 @@ public class Main {
         family.addChild(child1);
         System.out.println("\n" + family);
 
-        //adding child2
+        //adding child2 and child3
         family.addChild(child2);
         family.addChild(child3);
         System.out.println(family.countFamily() + "\n" + family);
