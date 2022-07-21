@@ -13,7 +13,7 @@ public class Planner {
 
         while (check) {
             System.out.print("Enter day of Week: ");
-            String day = scanner.nextLine().trim(); // remove spaces from user input
+            String day = scanner.nextLine().trim().toLowerCase(); // remove spaces from user input
 
             if (day.contains("change")) {
                 day = textFormatter(day.trim().substring(7)); //extract day from input
