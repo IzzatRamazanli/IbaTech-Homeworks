@@ -65,13 +65,17 @@ public class Family {
     }
 
     public void addChild(Human child) {
-        Human[] children = new Human[getChildren().length + 1];
-        for (int i = 0; i < getChildren().length; i++) {
-            children[i] = getChildren()[i];
+        if (child != null) {
+            Human[] children = new Human[getChildren().length + 1];
+            for (int i = 0; i < getChildren().length; i++) {
+                children[i] = getChildren()[i];
+            }
+            children[children.length - 1] = child;
+            setChildren(children);
+            child.setFamily(this);
+        } else {
+            getChildren();
         }
-        children[children.length - 1] = child;
-        setChildren(children);
-        child.setFamily(this);
     }
 
     public void deleteChild(int index) {
@@ -97,17 +101,21 @@ public class Family {
 
     //Advanced complexity implementation -- deleting child
     public void deleteChild(Human child) {
-        for (int i = 0; i < getChildren().length; i++) {
-            if (child.equals(getChildren()[i])) {
-                Human[] children = new Human[getChildren().length - 1];
-                for (int k = 0, j = 0; k < getChildren().length; k++) {
-                    if (getChildren()[k].getName().equals(child.getName())) continue;
-                    children[j++] = getChildren()[k];
+        if (child != null) {
+            for (int i = 0; i < getChildren().length; i++) {
+                if (child.equals(getChildren()[i])) {
+                    Human[] children = new Human[getChildren().length - 1];
+                    for (int k = 0, j = 0; k < getChildren().length; k++) {
+                        if (getChildren()[k].getName().equals(child.getName())) continue;
+                        children[j++] = getChildren()[k];
+                    }
+                    setChildren(children);
+                } else {
+                    getChildren();
                 }
-                setChildren(children);
-            } else {
-                getChildren();
             }
+        } else {
+            getChildren();
         }
     }
 
