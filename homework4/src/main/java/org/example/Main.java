@@ -5,12 +5,12 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
 
-        Pet pet = new Pet();
-        pet.species = "dog";
-        pet.nickName = "Max";
-        pet.age = 2;
-        pet.trickLevel = 45;
-        pet.habits = new String[]{"eating", "sleeping", "playing with bone"};
+        Pet pet = new Pet("dog",
+                "Max",
+                2,
+                45,
+                new String[]{"eating", "sleeping, playing with bone"}
+        );
 
         Human father = new Human("John", "Maxwell", 1973);
         Human mother = new Human("Jane", "Maxwell", 1977);
