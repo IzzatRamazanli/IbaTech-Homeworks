@@ -36,7 +36,15 @@ public class Pet {
         this.species = species;
         this.nickName = nickName;
         this.age = age;
-        this.trickLevel = trickLevel;
+        if (trickLevel < 1 || trickLevel > 100) {
+            System.out.println("Tricklevel must be between 1-100");
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Redefine the tricklevel in 1-100 please: ");
+            trickLevel = scanner.nextInt();
+            this.trickLevel = trickLevel;
+        } else {
+            this.trickLevel = trickLevel;
+        }
         this.habits = habits;
     }
 
