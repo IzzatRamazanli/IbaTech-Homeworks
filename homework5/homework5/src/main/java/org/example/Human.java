@@ -52,11 +52,20 @@ public class Human {
                 this.year == human.year;
     }
 
-    public Human(String name, String surname, int year, int iq, String[][] schedule, Family family) {
+  public Human(String name, String surname, int year, int iq, String[][] schedule, Family family) {
         this.setName(name);
         this.setSurname(surname);
         this.setYear(year);
-        this.setIq(iq);
+
+        if (iq < 1 || iq > 100) {
+            System.out.println("IQ must be between 1-100");
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Redefine IQ in 1-100 please: ");
+            iq = scanner.nextInt();
+            this.setIq(iq);
+        } else {
+            this.setIq(iq);
+        }
         this.setSchedule(schedule);
         this.setFamily(family);
     }
