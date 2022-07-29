@@ -11,16 +11,6 @@ public class Human {
     Pet pet;
     String[][] schedule;
 
-    public Human(String name, String surname, int year, Human mother, Human father, int iq, Pet pet, String[][] schedule) {
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
-        this.mother = mother;
-        this.father = father;
-        this.iq = iq;
-        this.pet = pet;
-        this.schedule = schedule;
-    }
 
     //overriding toString
     @Override
@@ -51,6 +41,25 @@ public class Human {
         this.year = year;
         this.mother = mother;
         this.father = father;
+    }
+    
+    public Human(String name, String surname, int year, Human mother, Human father, int iq, Pet pet, String[][] schedule) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.mother = mother;
+        this.father = father;
+        if (iq < 1 || iq > 100) {
+            System.out.println("IQ must be between 1-100");
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Redefine IQ in 1-100 please: ");
+            iq = scanner.nextInt();
+            this.iq = iq;
+        }else{
+            this.iq = iq;
+        }
+        this.pet = pet;
+        this.schedule = schedule;
     }
 
     public void greetPet() {
