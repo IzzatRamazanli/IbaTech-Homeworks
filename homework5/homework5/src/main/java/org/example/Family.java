@@ -52,7 +52,7 @@ public class Family {
         if (obj == this) return true;
 
         Family family = (Family) obj;
-        return mother.equals(family.mother) && father.equals(family.father);
+        return mother.equals(family.mother) && father.equals(family.father) && Arrays.equals(children, family.getChildren());
     }
 
     public Family(Human mother, Human father) {
