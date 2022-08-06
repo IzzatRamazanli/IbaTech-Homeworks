@@ -15,7 +15,7 @@ public class Human {
     //overriding toString
     @Override
     public String toString() {
-        if (iq == 0 && schedule.length == 0) {
+        if (iq == 0 && schedule == null) {
             return "Human{" +
                     "name='" + name + '\'' +
                     ", surname='" + surname + '\'' +
