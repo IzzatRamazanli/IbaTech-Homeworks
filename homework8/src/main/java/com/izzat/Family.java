@@ -45,6 +45,10 @@ public class Family {
         }
     }
 
+    public int countFamily() {
+        return 2 + getChildren().size();
+    }
+
     public void describePet() {
         String slyLevel = "";
         if (getPetFromSet().getTrickLevel() >= 50) {
@@ -143,7 +147,7 @@ public class Family {
 
         Family family = (Family) obj;
         return mother.equals(family.mother) && father.equals(family.father) &&
-                children.equals(family.getChildren()) && pet.equals(family.getPet());
+                children.equals(family.getChildren());
     }
 
     @Override
@@ -153,6 +157,6 @@ public class Family {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getMother(), getFather(), getChildren(), getPet());
+        return Objects.hash(getMother(), getFather(), getChildren());
     }
 }

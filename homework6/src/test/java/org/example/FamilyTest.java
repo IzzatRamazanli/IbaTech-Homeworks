@@ -95,11 +95,11 @@ class FamilyTest {
     @Test
     void deletingChildByFalseReference() {
         setChild();
-        Human child2 = new Human("Mike", "Maxwell", 2003, 92,
+        Human child2 = new Human("Tom", "Maxwell", 2003, 92,
                 new String[][]{{DayOfWeek.MONDAY.name(), "go to course"}}, maxwellFamily
         );
         maxwellFamily.deleteChild(child2);
-        assertEquals(0, this.maxwellFamily.getChildren().length);
+        assertEquals(1, this.maxwellFamily.getChildren().length);
     }
 
 

@@ -17,6 +17,6 @@ class HumanTest {
     @Test
     void testNonEquality() {
         Human human1 = new Human("July", "Maxwell", 1978);
-        assertEquals(false, human.equals(human1));
+        assertNotEquals(human, human1);
     }
 }
