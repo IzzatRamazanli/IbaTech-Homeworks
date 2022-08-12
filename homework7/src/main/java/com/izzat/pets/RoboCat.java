@@ -12,6 +12,7 @@ public class RoboCat extends Pet implements Foul {
 
     public RoboCat(String nickName, int age, int trickLevel, String[] habits) {
         super(nickName, age, trickLevel, habits);
+        super.setSpecies(Species.ROBOCAT);
     }
 
     @Override

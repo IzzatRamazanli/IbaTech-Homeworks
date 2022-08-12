@@ -12,6 +12,7 @@ public class DomesticCat extends Pet implements Foul {
 
     public DomesticCat(String nickName, int age, int trickLevel, String[] habits) {
         super(nickName, age, trickLevel, habits);
+        super.setSpecies(Species.DOMESTICCAT);
     }
 
 

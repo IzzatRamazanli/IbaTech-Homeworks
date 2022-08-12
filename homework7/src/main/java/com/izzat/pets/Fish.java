@@ -10,6 +10,7 @@ public class Fish extends Pet {
     }
     public Fish(String nickName, int age, int trickLevel, String[] habits) {
         super(nickName, age, trickLevel, habits);
+        super.setSpecies(Species.FISH);
     }
 
     @Override
