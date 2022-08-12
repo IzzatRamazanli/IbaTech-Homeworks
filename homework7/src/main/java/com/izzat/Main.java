@@ -5,8 +5,6 @@ import com.izzat.humans.Man;
 import com.izzat.humans.Woman;
 import com.izzat.pets.Dog;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
 

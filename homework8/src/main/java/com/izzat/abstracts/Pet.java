@@ -23,7 +23,7 @@ public abstract class Pet {
     }
 
     // constructor with all fields
-    public Pet(String nickName, int age, int trickLevel, HashSet<String> habits) {
+    public Pet(String nickName, int age, int trickLevel, Set<String> habits) {
         this.setSpecies(Species.UNKNOWN);
         this.setNickName(nickName);
         this.setAge(age);
@@ -82,7 +82,7 @@ public abstract class Pet {
         return habits;
     }
 
-    public void setHabits(HashSet<String> habits) {
+    public void setHabits(Set<String> habits) {
         this.habits = habits;
     }
 

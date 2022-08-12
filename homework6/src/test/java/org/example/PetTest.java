@@ -14,9 +14,9 @@ class PetTest {
     }
 
     @Test
-    void testNonEquality(){
-        Pet pet1 = new Pet(Species.DOG,"Hermosa");
-        assertNotEquals(pet,pet1);
+    void testNonEquality() {
+        Pet pet1 = new Pet(Species.DOG, "Hermosa");
+        assertNotEquals(pet, pet1);
     }
 
 }

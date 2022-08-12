@@ -11,11 +11,12 @@ class HumanTest {
     void testEquality() {
         Human human1 = new Human("Judy", "Maxwell", 1978);
         assertEquals(human, human1);
+
     }
 
     @Test
     void testNonEquality() {
         Human human1 = new Human("July", "Maxwell", 1978);
-        assertNotEquals(human, human1);
+        assertEquals(false, human.equals(human1));
     }
 }
