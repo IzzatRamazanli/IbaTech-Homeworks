@@ -13,20 +13,18 @@ class FamilyTest {
     Woman mother = new Woman("Jane", "Maxwell", 1977, 98);
     Man father = new Man("John", "Maxwell", 1973, 97);
     Family maxwellFamily = new Family(mother, father);
-    Human child1 = new Human("Mike", "Maxwell", 2003, 92,
-            new String[][]{{DayOfWeek.MONDAY.name(), "go to course"}}, maxwellFamily
-    );
+    Human child1;
 
     Human[] setChild() {
-        maxwellFamily.addChild(child1);
+        child1 = mother.bornChild(maxwellFamily, father);
         return maxwellFamily.getChildren();
     }
 
 
     @Test
     void testEqualityWithoutChild() {
-        Human mother = new Human("Jane", "Maxwell", 1977);
-        Human father = new Human("John", "Maxwell", 1973);
+        Woman mother = new Woman("Jane", "Maxwell", 1977, 98);
+        Man father = new Man("John", "Maxwell", 1973, 97);
         Family testFamily = new Family(mother, father);
         assertEquals(maxwellFamily, testFamily);
 
@@ -34,8 +32,8 @@ class FamilyTest {
 
     @Test
     void testNonEqualityWithoutChild() {
-        Woman mother = new Woman("Jane", "Bowman", 1977,98);
-        Man father = new Man("John", "Bowman", 1973,97);
+        Woman mother = new Woman("Jane", "Bowman", 1977, 98);
+        Man father = new Man("John", "Bowman", 1973, 97);
         Family testFamily = new Family(mother, father);
         assertNotEquals(maxwellFamily, testFamily);
     }
@@ -43,28 +41,22 @@ class FamilyTest {
     @Test
     void testEqualityWithChild() {
         setChild();
-        Human mother = new Human("Jane", "Maxwell", 1977);
-        Human father = new Human("John", "Maxwell", 1973);
+        Woman mother = new Woman("Jane", "Maxwell", 1977, 98);
+        Human father = new Human("John", "Maxwell", 1973, 97);
 
         Family testFamily = new Family(mother, father);
-        Human childTest = new Human("Mike", "Maxwell", 2003, 92,
-                new String[][]{{DayOfWeek.MONDAY.name(), "go to course"}}, testFamily
-        );
-        testFamily.addChild(childTest);
+        testFamily.addChild(child1);
         assertEquals(maxwellFamily, testFamily);
     }
 
     @Test
     void testNonEqualityWithChild() {
         setChild();
-        Human mother = new Human("Jane", "Maxwell", 1977);
-        Human father = new Human("John", "Maxwell", 1973);
+        Woman mother = new Woman("Jane", "Maxwell", 1977, 98);
+        Man father = new Man("John", "Maxwell", 1973, 97);
 
         Family testFamily = new Family(mother, father);
-        Human childTest = new Human("Barny", "Maxwell", 2003, 92,
-                new String[][]{{DayOfWeek.MONDAY.name(), "go to course"}}, testFamily
-        );
-        testFamily.addChild(childTest);
+        mother.bornChild(testFamily, father);
         assertNotEquals(maxwellFamily, testFamily);
     }
 
@@ -103,6 +95,12 @@ class FamilyTest {
         );
         maxwellFamily.deleteChild(child2);
         assertEquals(1, this.maxwellFamily.getChildren().length);
+    }
+
+    @Test
+    void testBornChild() {
+        mother.bornChild(maxwellFamily, father);
+        assertEquals(1, maxwellFamily.getChildren().length);
     }
 
 }
