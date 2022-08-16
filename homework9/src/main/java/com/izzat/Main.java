@@ -45,10 +45,14 @@ public class Main {
         System.out.println("Service");
         service.getFamiliesBiggerThan(2);
         service.getFamiliesLessThan(3);
+        service.bornChild(maxwellFamily,fatherJohn,motherJane);
+        service.displayAllFamilies();
+        service.deleteAllChildrenOlderThan(19);
+        service.displayAllFamilies();
 
-        maxwellFamily.setPet(petSet);
 
 
+        //maxwellFamily.setPet(petSet);
         //advanced complexity implemented
         //Human child = motherJane.bornChild(maxwellFamily, fatherJohn);
         //maxwellFamily.deleteChildByReference(child);
