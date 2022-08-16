@@ -4,10 +4,8 @@ import com.izzat.Family;
 import com.izzat.dao.FamilyDao;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class FamilyCollectionDao implements FamilyDao {
 
@@ -22,7 +20,6 @@ public class FamilyCollectionDao implements FamilyDao {
     public Family getFamilyByIndex(int index) {
         return findByIndex(index).orElse(null);
     }
-
 
     @Override
     public boolean deleteFamily(int index) {

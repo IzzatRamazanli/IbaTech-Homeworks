@@ -1,6 +1,7 @@
 package com.izzat;
 
 import com.izzat.abstracts.Pet;
+import com.izzat.dao.FamilyService;
 import com.izzat.dao.implement.FamilyCollectionDao;
 import com.izzat.enums.DayOfWeek;
 import com.izzat.humans.Man;
@@ -40,14 +41,19 @@ public class Main {
         dao.saveFamily(maxwellFamily);
         System.out.println(dao.getFamilyByIndex(0)+" optional");
 
+        FamilyService service = new FamilyService(dao);
+        System.out.println("Service");
+        service.getFamiliesBiggerThan(2);
+        service.getFamiliesLessThan(3);
+
         maxwellFamily.setPet(petSet);
 
 
         //advanced complexity implemented
-        Human child = motherJane.bornChild(maxwellFamily, fatherJohn);
+        //Human child = motherJane.bornChild(maxwellFamily, fatherJohn);
         //maxwellFamily.deleteChildByReference(child);
 
-        System.out.println(maxwellFamily);
+        //System.out.println(maxwellFamily);
 
 
     }
