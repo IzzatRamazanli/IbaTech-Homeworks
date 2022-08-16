@@ -2,6 +2,7 @@ package com.izzat.dao;
 
 import com.izzat.Family;
 import com.izzat.Human;
+import com.izzat.abstracts.Pet;
 import com.izzat.humans.Man;
 import com.izzat.humans.Woman;
 
@@ -37,6 +38,7 @@ public class FamilyService {
                 .toList().forEach(System.out::println);
 
     }
+
     public void countFamiliesWithMemberNumber() {
         //soranin isi
     }
@@ -96,6 +98,18 @@ public class FamilyService {
             dao.saveFamily(x);
         });
 
+    }
+
+    public int count() {
+        return getAllFamilies().size();
+    }
+
+    public Family getFamilyById(int id) {
+        return dao.getFamilyByIndex(id);
+    }
+
+    public List<Pet> getPets(int index) {
+        return dao.getFamilyByIndex(index).getPet().stream().toList();
     }
 
 
