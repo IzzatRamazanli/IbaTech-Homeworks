@@ -1,16 +1,14 @@
 package com.izzat.dao;
 
 import com.izzat.Family;
+import com.izzat.dao.implement.FamilyCollectionDao;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FamilyService {
-    private final FamilyDao dao;
+    private final FamilyDao dao = new FamilyCollectionDao();
 
-    public FamilyService(FamilyDao dao) {
-        this.dao = dao;
-    }
 
     public List<Family> getAllFamilies() {
         return dao.getAllFamilies();

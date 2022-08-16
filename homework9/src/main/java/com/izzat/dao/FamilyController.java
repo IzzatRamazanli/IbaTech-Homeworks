@@ -1,9 +1,6 @@
 package com.izzat.dao;
 
 public class FamilyController {
-    private final FamilyService service;
+    private final FamilyService service = new FamilyService();
 
-    public FamilyController(FamilyService service) {
-        this.service = service;
-    }
 }

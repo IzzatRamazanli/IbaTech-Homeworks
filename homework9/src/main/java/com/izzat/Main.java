@@ -1,6 +1,7 @@
 package com.izzat;
 
 import com.izzat.abstracts.Pet;
+import com.izzat.dao.implement.FamilyCollectionDao;
 import com.izzat.enums.DayOfWeek;
 import com.izzat.humans.Man;
 import com.izzat.humans.Woman;
@@ -15,6 +16,8 @@ public class Main {
         Set<String> habits = new HashSet<>();
         habits.add("eating");
         habits.add("sleeping");
+
+        FamilyCollectionDao dao = new FamilyCollectionDao();
 
         Pet dogMax = new Dog("Max", 2, 45, habits);
         Pet catCap = new DomesticCat("Cap", 3, 34, habits);
@@ -34,8 +37,11 @@ public class Main {
         motherJane.setSchedule(scheduleWoman);
 
         Family maxwellFamily = new Family(motherJane, fatherJohn);
+        dao.saveFamily(maxwellFamily);
+        System.out.println(dao.getFamilyByIndex(0)+" optional");
 
         maxwellFamily.setPet(petSet);
+
 
         //advanced complexity implemented
         Human child = motherJane.bornChild(maxwellFamily, fatherJohn);
