@@ -1,6 +1,7 @@
 package com.izzat.dao;
 
 import com.izzat.Family;
+import com.izzat.Human;
 import com.izzat.abstracts.Pet;
 import com.izzat.humans.Man;
 import com.izzat.humans.Woman;
@@ -8,7 +9,7 @@ import com.izzat.humans.Woman;
 import java.util.List;
 
 public class FamilyController {
-    private final FamilyService service =new FamilyService();
+    private final FamilyService service = new FamilyService();
 
     public List<Family> getAllFamilies() {
         return service.getAllFamilies();
@@ -40,6 +41,10 @@ public class FamilyController {
 
     public Family bornChild(Family family) {
         return service.bornChild(family);
+    }
+
+    public Family adoptChild(Human child, Family family) {
+        return service.adoptChild(child, family);
     }
 
     public void deleteAllChildrenOlderThan(int age) {

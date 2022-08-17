@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class FamilyService {
-    private final FamilyDao dao =new FamilyCollectionDao();
+    private final FamilyDao dao = new FamilyCollectionDao();
 
     public List<Family> getAllFamilies() {
         return dao.getAllFamilies();
@@ -64,6 +64,13 @@ public class FamilyService {
         child.setYear(2002);
         int averageIq = (family.getFather().getIq() + family.getMother().getIq()) / 2;
         child.setIq(averageIq);
+        dao.saveFamily(family);
+        return family;
+    }
+
+    public Family adoptChild(Human child, Family family) {
+        family.addChild(child);
+        child.setFamily(family);
         dao.saveFamily(family);
         return family;
     }

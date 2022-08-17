@@ -37,9 +37,8 @@ public class Main {
         controller.addPet(newFamily, catCap);
         controller.bornChild(maxwellFamily);
 
-
         controller.displayAllFamilies().forEach(System.out::println);
-
+        controller.count();
 
     }
 }
