@@ -8,11 +8,7 @@ import com.izzat.humans.Woman;
 import java.util.List;
 
 public class FamilyController {
-    private final FamilyService service;
-
-    public FamilyController(FamilyService service) {
-        this.service = service;
-    }
+    private final FamilyService service =new FamilyService();
 
     public List<Family> getAllFamilies() {
         return service.getAllFamilies();
@@ -62,8 +58,8 @@ public class FamilyController {
         return service.getPets(index);
     }
 
-    public void addPet(int index, Pet pet) {
-        service.addPet(index, pet);
+    public void addPet(Family f, Pet pet) {
+        service.addPet(f, pet);
     }
 
 

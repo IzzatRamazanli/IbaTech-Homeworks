@@ -1,6 +1,7 @@
 package com.izzat;
 
 import com.izzat.abstracts.Pet;
+import com.izzat.dao.FamilyController;
 import com.izzat.dao.FamilyService;
 import com.izzat.dao.implement.FamilyCollectionDao;
 import com.izzat.enums.DayOfWeek;
@@ -15,30 +16,29 @@ public class Main {
 
     public static void main(String[] args) {
 
+        FamilyController controller = new FamilyController();
+
         Set<String> habits = new HashSet<>();
         habits.add("eating");
         habits.add("sleeping");
-
-        FamilyCollectionDao dao = new FamilyCollectionDao();
 
         Pet dogMax = new Dog("Max", 2, 45, habits);
         Pet catCap = new DomesticCat("Cap", 3, 34, habits);
 
         Man fatherJohn = new Man("John", "Maxwell", 1973, 98);
-
         Woman motherJane = new Woman("Jane", "Maxwell", 1977, 96);
 
-        Family maxwellFamily;
+        Man father = new Man("Father", "Father", 1992, 99);
+        Woman mother = new Woman("Mother", "Mother", 1992, 98);
 
-        FamilyService service = new FamilyService(dao);
-        System.out.println("Service");
-        maxwellFamily = service.createNewFamily(motherJane, fatherJohn);
-        service.addPet(0, dogMax);
-        service.bornChild(maxwellFamily);
-        System.out.println(service.countFamiliesWithMemberNumber(1));
-        System.out.println(service.count());
-        service.displayAllFamilies().forEach(System.out::println);
+        Family maxwellFamily = controller.createNewFamily(motherJane, fatherJohn);
+        Family newFamily = controller.createNewFamily(mother, father);
+        controller.addPet(maxwellFamily, dogMax);
+        controller.addPet(newFamily, catCap);
+        controller.bornChild(maxwellFamily);
 
+
+        controller.displayAllFamilies().forEach(System.out::println);
 
 
     }
