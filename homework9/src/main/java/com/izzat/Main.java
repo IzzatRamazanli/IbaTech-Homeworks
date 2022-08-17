@@ -59,7 +59,7 @@ public class Main {
         System.out.println("\ndelete family by index");
         controller.deleteFamilyByIndex(1);
 
-        System.out.println("\ndisplaying");
+        System.out.println("\ndisplaying all families from database");
         controller.displayAllFamilies().forEach(System.out::println);
         System.out.println(controller.count());
 
