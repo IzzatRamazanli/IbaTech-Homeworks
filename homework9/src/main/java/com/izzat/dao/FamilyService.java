@@ -7,10 +7,7 @@ import com.izzat.humans.Man;
 import com.izzat.humans.Woman;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class FamilyService {
     private final FamilyDao dao;
@@ -39,13 +36,20 @@ public class FamilyService {
 
     }
 
-    public void countFamiliesWithMemberNumber() {
-        //soranin isi
+    public int countFamiliesWithMemberNumber(int number) {
+        int[] count = {0};
+        getAllFamilies().forEach(x -> {
+            if (x.countFamily() == number) {
+                count[0]++;
+            }
+        });
+        return count[0];
     }
 
-    public void createFamily(Woman mother, Man father) {
-        Family nf = new Family(mother, father);
-        dao.saveFamily(nf);
+    public Family createNewFamily(Woman mother, Man father) {
+        Family family = new Family(mother, father);
+        dao.saveFamily(family);
+        return family;
     }
 
     public void deleteFamilyByIndex(int index) {
@@ -54,15 +58,15 @@ public class FamilyService {
     }
 
 
-    public Family bornChild(Family family, Man father, Woman mother) {
+    public Family bornChild(Family family) {
         Human child = genderSetter();
+        family.addChild(child);
         child.setFamily(family);
         child.setName(randomName(child));
-        child.setSurname(father.getSurname());
+        child.setSurname(family.getFather().getSurname());
         child.setYear(2002);
-        child.getFamily().setMother(mother);
-        child.getFamily().setFather(father);
-        family.addChild(child);
+        int averageIq = (family.getFather().getIq() + family.getMother().getIq()) / 2;
+        child.setIq(averageIq);
         dao.saveFamily(family);
         return family;
     }
@@ -110,6 +114,13 @@ public class FamilyService {
 
     public List<Pet> getPets(int index) {
         return dao.getFamilyByIndex(index).getPet().stream().toList();
+    }
+
+    public void addPet(int index, Pet pet) {
+        getAllFamilies().forEach(x -> {
+            dao.getFamilyByIndex(index).setPet(pet);
+            dao.saveFamily(x);
+        });
     }
 
 

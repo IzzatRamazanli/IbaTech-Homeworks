@@ -22,37 +22,24 @@ public class Main {
 
         Pet dogMax = new Dog("Max", 2, 45, habits);
         Pet catCap = new DomesticCat("Cap", 3, 34, habits);
-        Set<Pet> petSet = new HashSet<>();
-        petSet.add(dogMax);
-        petSet.add(catCap);
 
         Man fatherJohn = new Man("John", "Maxwell", 1973, 98);
 
-        Map<DayOfWeek, String> scheduleMan = new HashMap<>();
-        scheduleMan.put(DayOfWeek.MONDAY, "repair car");
-        fatherJohn.setSchedule(scheduleMan);
-
         Woman motherJane = new Woman("Jane", "Maxwell", 1977, 96);
-        Map<DayOfWeek, String> scheduleWoman = new HashMap<>();
-        scheduleWoman.put(DayOfWeek.MONDAY, "do shopping");
-        motherJane.setSchedule(scheduleWoman);
 
-        Family maxwellFamily = new Family(motherJane, fatherJohn);
-        dao.saveFamily(maxwellFamily);
-        System.out.println(dao.getFamilyByIndex(0)+" optional");
+        Family maxwellFamily;
+//        System.out.println(dao.getFamilyByIndex(0) + " optional");
 
         FamilyService service = new FamilyService(dao);
         System.out.println("Service");
-        service.getFamiliesBiggerThan(2);
-        service.getFamiliesLessThan(3);
-        service.bornChild(maxwellFamily,fatherJohn,motherJane);
+        maxwellFamily = service.createNewFamily(motherJane, fatherJohn);
+        service.addPet(0, dogMax);
+        service.bornChild(maxwellFamily);
         service.displayAllFamilies();
-        service.deleteAllChildrenOlderThan(19);
-        service.displayAllFamilies();
+        System.out.println(service.countFamiliesWithMemberNumber(1));
+        System.out.println(service.count());
 
 
-
-        //maxwellFamily.setPet(petSet);
         //advanced complexity implemented
         //Human child = motherJane.bornChild(maxwellFamily, fatherJohn);
         //maxwellFamily.deleteChildByReference(child);

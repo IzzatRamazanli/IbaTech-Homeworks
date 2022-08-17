@@ -14,7 +14,7 @@ public class Family {
         this.mother = mother;
         this.father = father;
         this.children = new ArrayList<>();
-        this.pet = getPet();
+        this.pet = new HashSet<>();
         father.setFamily(this);
         mother.setFamily(this);
     }
@@ -100,8 +100,8 @@ public class Family {
         return pet;
     }
 
-    public void setPet(Set<Pet> pet) {
-        this.pet = pet;
+    public void setPet(Pet p) {
+        this.pet.add(p);
     }
 
     private Pet getPetFromSet() {
@@ -149,7 +149,6 @@ public class Family {
         return mother.equals(family.mother) && father.equals(family.father) &&
                 children.equals(family.getChildren());
     }
-
     @Override
     protected void finalize() {
         System.out.println(this + " object collected by Garbage Collector");
