@@ -1,4 +1,4 @@
-package com.izzat.dao.implement;
+package com.izzat.dao.implementation;
 
 import com.izzat.Family;
 import com.izzat.dao.FamilyDao;

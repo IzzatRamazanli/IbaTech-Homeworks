@@ -2,9 +2,6 @@ package com.izzat;
 
 import com.izzat.abstracts.Pet;
 import com.izzat.dao.FamilyController;
-import com.izzat.dao.FamilyService;
-import com.izzat.dao.implement.FamilyCollectionDao;
-import com.izzat.enums.DayOfWeek;
 import com.izzat.humans.Man;
 import com.izzat.humans.Woman;
 import com.izzat.pets.Dog;

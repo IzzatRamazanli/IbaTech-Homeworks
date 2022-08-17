@@ -3,7 +3,7 @@ package com.izzat.dao;
 import com.izzat.Family;
 import com.izzat.Human;
 import com.izzat.abstracts.Pet;
-import com.izzat.dao.implement.FamilyCollectionDao;
+import com.izzat.dao.implementation.FamilyCollectionDao;
 import com.izzat.humans.Man;
 import com.izzat.humans.Woman;
 
