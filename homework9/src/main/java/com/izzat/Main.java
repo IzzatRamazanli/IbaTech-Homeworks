@@ -14,6 +14,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
+
         Set<String> habits = new HashSet<>();
         habits.add("eating");
         habits.add("sleeping");
@@ -28,7 +29,6 @@ public class Main {
         Woman motherJane = new Woman("Jane", "Maxwell", 1977, 96);
 
         Family maxwellFamily;
-//        System.out.println(dao.getFamilyByIndex(0) + " optional");
 
         FamilyService service = new FamilyService(dao);
         System.out.println("Service");
@@ -40,11 +40,6 @@ public class Main {
         System.out.println(service.count());
 
 
-        //advanced complexity implemented
-        //Human child = motherJane.bornChild(maxwellFamily, fatherJohn);
-        //maxwellFamily.deleteChildByReference(child);
-
-        //System.out.println(maxwellFamily);
 
 
     }
