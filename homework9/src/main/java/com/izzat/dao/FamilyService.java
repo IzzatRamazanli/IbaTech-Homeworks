@@ -20,20 +20,20 @@ public class FamilyService {
         return dao.getAllFamilies();
     }
 
-    public void displayAllFamilies() {
-        dao.getAllFamilies().forEach(System.out::println);
+    public List<Family> displayAllFamilies() {
+        return dao.getAllFamilies();
     }
 
-    public void getFamiliesBiggerThan(int count) {
-        getAllFamilies().stream().filter(x -> x.countFamily() > count)
-                .toList().forEach(System.out::println);
-
+    public List<Family> getFamiliesBiggerThan(int count) {
+        return getAllFamilies().stream()
+                .filter(x -> x.countFamily() > count)
+                .toList();
     }
 
-    public void getFamiliesLessThan(int count) {
-        getAllFamilies().stream().filter(x -> x.countFamily() < count)
-                .toList().forEach(System.out::println);
-
+    public List<Family> getFamiliesLessThan(int count) {
+        return getAllFamilies().stream()
+                .filter(x -> x.countFamily() < count)
+                .toList();
     }
 
     public int countFamiliesWithMemberNumber(int number) {

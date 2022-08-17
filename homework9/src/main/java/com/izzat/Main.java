@@ -35,10 +35,9 @@ public class Main {
         maxwellFamily = service.createNewFamily(motherJane, fatherJohn);
         service.addPet(0, dogMax);
         service.bornChild(maxwellFamily);
-        service.displayAllFamilies();
         System.out.println(service.countFamiliesWithMemberNumber(1));
         System.out.println(service.count());
-
+        service.displayAllFamilies().forEach(System.out::println);
 
 
 
