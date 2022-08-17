@@ -37,12 +37,17 @@ public class Main {
         controller.addPet(maxwellFamily, dogMax);
         controller.addPet(newFamily, catCap);
         controller.bornChild(maxwellFamily);
+        controller.bornChild(maxwellFamily);
+        controller.bornChild(newFamily);
 
         System.out.println("bigger than 2");
         controller.getFamiliesBiggerThan(2).forEach(System.out::println);
 
         System.out.println("\nless than 3");
         controller.getFamiliesLessThan(3).forEach(System.out::println);
+
+        System.out.println("\npets of maxwell");
+        controller.getPets(maxwellFamily).forEach(System.out::println);
 
         System.out.println("\ndisplaying");
         controller.displayAllFamilies().forEach(System.out::println);

@@ -56,12 +56,18 @@ public class FamilyService {
 
 
     public Family bornChild(Family family) {
+        Random ry = new Random();
+        int y = ry.nextInt(10) + 1;
         Human child = genderSetter();
         family.addChild(child);
         child.setFamily(family);
         child.setName(randomName(child));
         child.setSurname(family.getFather().getSurname());
-        child.setYear(2002);
+        if (family.getChildren().size() == 1) {
+            child.setYear(2002);
+        } else {
+            child.setYear(2002 + y);
+        }
         int averageIq = (family.getFather().getIq() + family.getMother().getIq()) / 2;
         child.setIq(averageIq);
         dao.saveFamily(family);
