@@ -116,8 +116,14 @@ public class FamilyService {
         return dao.getFamilyByIndex(id);
     }
 
-    public List<Pet> getPets(int index) {
-        return dao.getFamilyByIndex(index).getPet().stream().toList();
+    public List<Pet> getPets(Family family) {
+        List<Pet> pets = new ArrayList<>();
+        getAllFamilies().forEach(x -> {
+            if (x.equals(family)) {
+                pets.addAll(family.getPet());
+            }
+        });
+        return pets;
     }
 
     public void addPet(Family f, Pet pet) {

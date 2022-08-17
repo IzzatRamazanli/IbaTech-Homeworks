@@ -59,8 +59,8 @@ public class FamilyController {
         return service.getFamilyById(id);
     }
 
-    public List<Pet> getPets(int index) {
-        return service.getPets(index);
+    public List<Pet> getPets(Family f) {
+        return service.getPets(f);
     }
 
     public void addPet(Family f, Pet pet) {

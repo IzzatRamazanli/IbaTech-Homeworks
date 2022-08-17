@@ -33,12 +33,20 @@ public class Main {
 
         Family maxwellFamily = controller.createNewFamily(motherJane, fatherJohn);
         Family newFamily = controller.createNewFamily(mother, father);
+
         controller.addPet(maxwellFamily, dogMax);
         controller.addPet(newFamily, catCap);
         controller.bornChild(maxwellFamily);
 
+        System.out.println("bigger than 2");
+        controller.getFamiliesBiggerThan(2).forEach(System.out::println);
+
+        System.out.println("\nless than 3");
+        controller.getFamiliesLessThan(3).forEach(System.out::println);
+
+        System.out.println("\ndisplaying");
         controller.displayAllFamilies().forEach(System.out::println);
-        controller.count();
+        System.out.println(controller.count());
 
     }
 }
