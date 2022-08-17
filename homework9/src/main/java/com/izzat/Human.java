@@ -16,6 +16,14 @@ public class Human {
     private Map<DayOfWeek, String> schedule;
     private Family family;
 
+    { // non-static initializer for setting gender properly
+        if (this instanceof Man) {
+            this.gender = "Man";
+        } else {
+            this.gender = "Woman";
+        }
+    }
+
     public Human(String name, String surname, int year, int iq, Map<DayOfWeek, String> schedule, Family family) {
         this.setName(name);
         this.setSurname(surname);
@@ -24,19 +32,9 @@ public class Human {
         this.setSchedule(schedule);
         this.setFamily(family);
 
-        if (this instanceof Man) {
-            this.gender = "Man";
-        } else {
-            this.gender = "Woman";
-        }
     }
 
     public Human() {
-        if (this instanceof Man) {
-            this.gender = "Man";
-        } else {
-            this.gender = "Woman";
-        }
     }
 
     public Human(String name, String surname, int year, int iq) {

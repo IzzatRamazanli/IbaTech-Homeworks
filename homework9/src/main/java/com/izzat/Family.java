@@ -116,26 +116,26 @@ public class Family {
         if (getPet() == null && getChildren().size() == 0) {
             return "Family{" +
                     "mother=" + mother.getName() + " " + mother.getSurname() +
-                    ", father=" + father.getName() + " " + father.getSurname() +
+                    ",father=" + father.getName() + " " + father.getSurname() +
                     '}';
         } else if (getPet() != null && getChildren().size() == 0) {
             return "Family{" +
                     "mother=" + mother.getName() + " " + mother.getSurname() +
-                    ", father=" + father.getName() + " " + father.getSurname() +
-                    ",\n pet=" + pet +
+                    ",father=" + father.getName() + " " + father.getSurname() +
+                    ",\npet=" + pet +
                     '}';
         } else if (getPet() == null && getChildren().size() != 0) {
             return "Family{" +
                     "mother=" + mother.getName() + " " + mother.getSurname() +
-                    ", father=" + father.getName() + " " + father.getSurname() +
-                    ",\n children=" + children +
+                    ",father=" + father.getName() + " " + father.getSurname() +
+                    ",\nchildren=" + children +
                     '}';
         }
         return "Family{" +
                 "mother=" + mother.getName() + " " + mother.getSurname() +
-                ", father=" + father.getName() + " " + father.getSurname() +
-                ",\n children=" + children +
-                ",\n pet=" + pet +
+                ",father=" + father.getName() + " " + father.getSurname() +
+                ",\nchildren=" + children +
+                ",\npet=" + pet +
                 '}';
     }
 
