@@ -40,14 +40,22 @@ public class Main {
         controller.bornChild(maxwellFamily);
         controller.bornChild(newFamily);
 
-        System.out.println("bigger than 2");
-        controller.getFamiliesBiggerThan(2).forEach(System.out::println);
+        System.out.println("bigger than 3");
+        controller.getFamiliesBiggerThan(3).forEach(System.out::println);
 
         System.out.println("\nless than 3");
-        controller.getFamiliesLessThan(3).forEach(System.out::println);
+        controller.getFamiliesLessThan(4).forEach(System.out::println);
 
         System.out.println("\npets of maxwell");
         controller.getPets(maxwellFamily).forEach(System.out::println);
+
+        System.out.println("\n deleting children older than 15");
+        controller.deleteAllChildrenOlderThan(15);
+
+        System.out.println("\n get family by id :\n" + controller.getFamilyById(0));
+
+        System.out.println("\n delete family by index");
+        controller.deleteFamilyByIndex(0);
 
         System.out.println("\ndisplaying");
         controller.displayAllFamilies().forEach(System.out::println);
