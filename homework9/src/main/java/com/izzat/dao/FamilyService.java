@@ -3,7 +3,6 @@ package com.izzat.dao;
 import com.izzat.Family;
 import com.izzat.Human;
 import com.izzat.abstracts.Pet;
-import com.izzat.dao.implementation.FamilyCollectionDao;
 import com.izzat.humans.Man;
 import com.izzat.humans.Woman;
 
@@ -11,7 +10,11 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class FamilyService {
-    private final FamilyDao dao = new FamilyCollectionDao();
+    private final FamilyDao dao ;
+
+    public FamilyService(FamilyDao dao) {
+        this.dao = dao;
+    }
 
     public List<Family> getAllFamilies() {
         return dao.getAllFamilies();

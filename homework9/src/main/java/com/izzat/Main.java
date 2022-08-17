@@ -2,6 +2,9 @@ package com.izzat;
 
 import com.izzat.abstracts.Pet;
 import com.izzat.dao.FamilyController;
+import com.izzat.dao.FamilyDao;
+import com.izzat.dao.FamilyService;
+import com.izzat.dao.implementation.FamilyCollectionDao;
 import com.izzat.humans.Man;
 import com.izzat.humans.Woman;
 import com.izzat.pets.Dog;
@@ -13,7 +16,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        FamilyController controller = new FamilyController();
+        FamilyController controller = config();
 
         Set<String> habits = new HashSet<>();
         habits.add("eating");
@@ -62,6 +65,11 @@ public class Main {
         System.out.println("\ndisplaying all families from database");
         controller.displayAllFamilies().forEach(System.out::println);
         System.out.println(controller.count());
+    }
 
+    private static FamilyController config(){
+        FamilyDao dao = new FamilyCollectionDao();
+        FamilyService service = new FamilyService(dao);
+        return new FamilyController(service);
     }
 }

@@ -9,7 +9,11 @@ import com.izzat.humans.Woman;
 import java.util.List;
 
 public class FamilyController {
-    private final FamilyService service = new FamilyService();
+    private final FamilyService service;
+
+    public FamilyController(FamilyService service) {
+        this.service = service;
+    }
 
     public List<Family> getAllFamilies() {
         return service.getAllFamilies();
