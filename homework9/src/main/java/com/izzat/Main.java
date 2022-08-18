@@ -45,7 +45,9 @@ public class Main {
         //maxwell family adopt childAdopt
         controller.adoptChild(childAdopt, maxwellFamily);
 
-        System.out.println("bigger than 3");
+        System.out.println("count families with 5 member: " + controller.countFamiliesWithMemberNumber(5));
+
+        System.out.println("\nbigger than 3");
         controller.getFamiliesBiggerThan(3).forEach(System.out::println);
 
         System.out.println("\nless than 3");
@@ -67,7 +69,7 @@ public class Main {
         System.out.println(controller.count());
     }
 
-    private static FamilyController config(){
+    private static FamilyController config() {
         FamilyDao dao = new FamilyCollectionDao();
         FamilyService service = new FamilyService(dao);
         return new FamilyController(service);
