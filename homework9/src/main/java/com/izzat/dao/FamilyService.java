@@ -20,8 +20,11 @@ public class FamilyService {
         return dao.getAllFamilies();
     }
 
-    public List<Family> displayAllFamilies() {
-        return dao.getAllFamilies();
+    public void displayAllFamilies() {
+        int[] count = {1};
+        getAllFamilies().stream()
+                .map(x -> (count[0]++) + "." + x)
+                .forEach(System.out::println);
     }
 
     public List<Family> getFamiliesBiggerThan(int count) {

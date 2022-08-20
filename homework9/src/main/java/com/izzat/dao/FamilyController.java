@@ -19,8 +19,8 @@ public class FamilyController {
         return service.getAllFamilies();
     }
 
-    public List<Family> displayAllFamilies() {
-        return service.displayAllFamilies();
+    public void displayAllFamilies() {
+        service.displayAllFamilies();
     }
 
     public List<Family> getFamiliesBiggerThan(int count) {
