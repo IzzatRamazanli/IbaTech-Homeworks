@@ -27,7 +27,7 @@ Improve the project:
     - add the `family` (type `Family`) field (теперь оно хранит всю информацию о семейных данных человека)
     - add necessary getters, setters, constructors; remove irrelevant designers and methods; make refactoring of the  ` to welcome the favourite `, ` to describe the favourite `, ` to feed ` methods
     - refactor the `toString()` method. It should output info in the following format:
-      `Human{name='Name', surname='Surname', year=1, iq=1, schedule=[[day, task], [day_2, task_2]]}`
+      `Human{name='Name', surname='Surname', birthDate=1, iq=1, schedule=[[day, task], [day_2, task_2]]}`
     - Add the following methods in `Family`:
     - add a child - `addChild` (accepts the `Human` type and adds it to the children array; adds a link to the current family to the child)
     - delete a child -  `deleteChild` (accepts and array index and deltes the following element; returns a boolean value - was the element deleted or not)
