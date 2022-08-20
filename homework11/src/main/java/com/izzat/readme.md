@@ -2,18 +2,21 @@
 
 The idea of the project is to describe the structure of a family while taking into account that every human has relatives and the family members can change over time.
 
-# Working with date and time
+# Main innovations Java 8 – lambda, stream
 ## The task
 
-Improve the project: Do a refactoring `Human` class in such a way that he can work with date and time.
+Improve the project: in this project realize the possibilities of Java 8.
 
 #### Technical requirements:
-- Replace `year` field with `birthDate` field that keeps the meaning Unix Millis Timestamp (`long` type).
-- Add in `Human` class `describeAge()` method,which returns a line indicating the exact number of years, months and days of human life;
-- Create a constructor for adopted children describing the name, surname, date of birth and IQ. The date of birth is transmitted as a string in the format `20/03/2016`
-- Do a method refactoring `toString()` that it should indicate the date of birth in a format other than the year of birth `20/03/2016`
+- Do a refactoring `FamilyService` classes so that you can use the features of Java 8. The following methods are subject to refactoring:
+    - `displayAllFamilies()`;
+    - `getFamiliesBiggerThan(int count)`;
+    - `getFamiliesLessThan(int count)`;
+    - `countFamiliesWithMemberNumber`;
+    - `deleteAllChildrenOlderThan`;
 
 #### Literature:
-- [Date and time](https://www.w3schools.com/java/java_date.asp)
+- [New in Java 8](https://www.journaldev.com/2389/java-8-features-with-examples)
+
 
 
