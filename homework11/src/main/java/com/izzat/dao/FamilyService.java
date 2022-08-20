@@ -9,6 +9,7 @@ import com.izzat.humans.Woman;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class FamilyService {
     private final FamilyDao dao;
@@ -22,7 +23,7 @@ public class FamilyService {
     }
 
     public List<Family> displayAllFamilies() {
-        return dao.getAllFamilies();
+        return getAllFamilies();
     }
 
     public List<Family> getFamiliesBiggerThan(int count) {
