@@ -6,7 +6,7 @@ The idea of the project is to describe the structure of a family while taking in
 ## The task
 
 Improve the project:
-- Create a console application, which in an infinite loop ( untill entering the command `exit`) allows you to display and edit family information.
+- Create a console application, which in an infinite loop ( until entering the command `exit`) allows you to display and edit family information.
 - add the exception processing.
 
 #### Technical requirements:

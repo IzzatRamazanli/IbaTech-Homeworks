@@ -113,21 +113,31 @@ public class Family {
 
     @Override
     public String toString() {
+        return prettyFormat();
+    }
+
+    private String prettyFormat() {
         if (getPet() == null && getChildren().size() == 0) {
-
-            return "Family{mother=%s %s,father=%s %s}"
-                    .formatted(mother.getName(), mother.getSurname(), father.getName(), father.getSurname());
+            return "family:\n%5s mother: %s%5s father: %s"
+                    .formatted("", mother, "", father);
         } else if (getPet() != null && getChildren().size() == 0) {
-
-            return "Family{mother=%s %s,father=%s %s,\npet=%s}"
-                    .formatted(mother.getName(), mother.getSurname(), father.getName(), father.getSurname(), pet);
+            return "family:\n%5s mother: %s%5s father: %s\npets: %s"
+                    .formatted("", mother, "", father, pet);
         } else if (getPet() == null && getChildren().size() != 0) {
-
-            return "Family{mother=%s %s,father=%s %s,\nchildren=%s}"
-                    .formatted(mother.getName(), mother.getSurname(), father.getName(), father.getSurname(), children);
+            return "family:\n%5s mother: %s%5s father: %s children: \n%s\n"
+                    .formatted("", mother, "", father, getPrettyChildren());
         }
-        return "Family{mother=%s %s,father=%s %s,\nchildren=%s,\npet=%s}"
-                .formatted(mother.getName(), mother.getSurname(), father.getName(), father.getSurname(), children, pet);
+        return "family:\n%5s mother: %s%5s father: %s children: \n%s\n pets: %s"
+                .formatted("", mother, "", father, getPrettyChildren(), pet);
+    }
+
+    private String getPrettyChildren() {
+        final String[] format = {""};
+        getChildren().forEach(x -> {
+            format[0] = "%10s : {name=%s, surname=%s, birthdate=%s, iq=%d, schedule=%s}"
+                    .formatted(x.getGender(), x.getName(), x.getSurname(), x.getBirthDate(), x.getIq(), x.getSchedule());
+        });
+        return format[0];
     }
 
     @Override
@@ -140,6 +150,7 @@ public class Family {
         return mother.equals(family.mother) && father.equals(family.father) &&
                 children.equals(family.getChildren());
     }
+
     @Override
     protected void finalize() {
         System.out.println(this + " object collected by Garbage Collector");
