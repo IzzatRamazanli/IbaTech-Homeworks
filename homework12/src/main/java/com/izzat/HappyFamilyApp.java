@@ -92,7 +92,7 @@ public class HappyFamilyApp {
                   - 1. Give birth to a baby
                   - 2. Adopt a child
                   - 3. Return to main menu \s
-                - 9. Remove all children over the age of majority (all families remove children over the age of majority - let us assume they have grown up)
+                - 9. Remove all children over the age of majority
                 - Exit
                 """
 
