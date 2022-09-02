@@ -31,6 +31,15 @@ public class FamilyCollectionDao implements FamilyDao {
     }
 
     @Override
+    public boolean deleteFamily(Family f) {
+        if (findByReference(f).isPresent()) {
+            fl.remove(f);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public void saveFamily(Family f) {
         if (findByReference(f).isPresent()) {
             fl.set(fl.indexOf(f), f);
