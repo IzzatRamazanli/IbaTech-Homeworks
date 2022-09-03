@@ -162,8 +162,8 @@ public class FamilyApplication {
         int id = sc.nextInt();
         try {
             return CONTROLLER.getFamilyById(id);
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println(e.getMessage());
+        } catch (IndexOutOfBoundsException iob) {
+            System.out.println(iob.getMessage());
             getFamilyById();
         }
         return null;
