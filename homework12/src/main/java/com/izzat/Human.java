@@ -22,9 +22,9 @@ public class Human {
 
     { // non-static initializer for setting gender properly
         if (this instanceof Man) {
-            this.gender = "Man";
+            this.gender = "Boy";
         } else {
-            this.gender = "Woman";
+            this.gender = "Girl";
         }
     }
 
@@ -86,7 +86,8 @@ public class Human {
     public int getBirthYear() throws ParseException {
         return getFormattedDate(SDF.format(birthDate)).getYear();
     }
-    public String getBirthDate(){
+
+    public String getBirthDate() {
         return String.valueOf(SDF.format(birthDate));
     }
 
@@ -132,11 +133,7 @@ public class Human {
     }
 
     public void setGender(String gender) {
-        if (this instanceof Man) {
-            this.gender = "boy";
-        } else {
-            this.gender = "girl";
-        }
+        this.gender = gender;
     }
 
     @Override
@@ -146,14 +143,14 @@ public class Human {
 
     private String prettyFormat() {
         if (iq == 0 && schedule == null) {
-            return "%s{name='%s', surname='%s', birthDate=%s}\n"
-                    .formatted(gender, name, surname, SDF.format(birthDate));
+            return "{name='%s', surname='%s', birthDate=%s}\n"
+                    .formatted(name, surname, SDF.format(birthDate));
         } else if (schedule == null) {
-            return "%s{name='%s', surname='%s', birthDate=%s, iq=%d}\n"
-                    .formatted(gender, name, surname, SDF.format(birthDate), iq);
+            return "{name='%s', surname='%s', birthDate=%s, iq=%d}\n"
+                    .formatted(name, surname, SDF.format(birthDate), iq);
         }
-        return "%s{name='%s', surname='%s', birthDate=%s, iq=%d, schedule=%s}\n"
-                .formatted(gender, name, surname, SDF.format(birthDate), iq, schedule);
+        return "{name='%s', surname='%s', birthDate=%s, iq=%d, schedule=%s}\n"
+                .formatted(name, surname, SDF.format(birthDate), iq, schedule);
     }
 
     @Override

@@ -42,6 +42,8 @@ public class Main {
         controller.bornChild(maxwellFamily);
         controller.bornChild(maxwellFamily);
         controller.bornChild(newFamily);
+        controller.bornChild(newFamily);
+        controller.displayAllFamilies();
 
         controller.adoptChild(childAdopt, maxwellFamily);
 

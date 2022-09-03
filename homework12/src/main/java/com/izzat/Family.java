@@ -132,12 +132,12 @@ public class Family {
     }
 
     private String getPrettyChildren() {
-        final String[] format = {""};
+        final StringBuilder[] format = {new StringBuilder("")};
         getChildren().forEach(x -> {
-            format[0] = "%10s : {name=%s, surname=%s, birthdate=%s, iq=%d, schedule=%s}"
-                    .formatted(x.getGender(), x.getName(), x.getSurname(), x.getBirthDate(), x.getIq(), x.getSchedule());
+            format[0] = format[0].append("%10s : {name=%s, surname=%s, birthdate=%s, iq=%d, schedule=%s}\n"
+                    .formatted(x.getGender(), x.getName(), x.getSurname(), x.getBirthDate(), x.getIq(), x.getSchedule()));
         });
-        return format[0];
+        return format[0].toString();
     }
 
     @Override

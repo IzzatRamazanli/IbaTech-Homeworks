@@ -74,6 +74,9 @@ public class HappyFamilyApp {
                 case "7":
                     deletingFamily();
                     break;
+                case "8":
+                    editFamily();
+                    break;
                 default:
                     System.out.println("Command not exist, try again please!");
 
@@ -120,6 +123,8 @@ public class HappyFamilyApp {
         Pet catCap = new DomesticCat("Cap", 3, 34, habits);
         CONTROLLER.addPet(maxwellFamily, dogMax);
         CONTROLLER.addPet(newFamily, catCap);
+        CONTROLLER.bornChild(maxwellFamily);
+        CONTROLLER.bornChild(newFamily);
     }
 
     private Family creatingFamily() throws ParseException {
@@ -172,7 +177,55 @@ public class HappyFamilyApp {
             System.out.println("Entered ID doesn't exist in database!");
             deletingFamily();
         }
+    }
 
+    private void editFamily() throws ParseException {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Available commands:\n- 1. Give birth to a baby\n- 2. Adopt a child\n- 3. Return to main menu");
+        System.out.print("\nEnter command to run: ");
+        String command = sc.nextLine();
+        switch (command) {
+            case "1":
+                CONTROLLER.bornChild(getFamilyById());
+                break;
+            case "2":
+                CONTROLLER.adoptChild(adoptChild(), getFamilyById());
+                break;
+            case "3":
+                start();
+            default:
+                System.out.println("Entered command not exist, try again!");
+        }
+    }
+
+    private Family getFamilyById() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Family ID: ");
+        int id = sc.nextInt();
+        try {
+            return CONTROLLER.getFamilyById(id);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
+            getFamilyById();
+        }
+        return null;
+    }
+
+    private Human adoptChild() throws ParseException {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter child's gender: ");
+        String gender = sc.nextLine();
+        System.out.print("Enter child's name: ");
+        String name = sc.nextLine();
+        System.out.print("Enter child's surname: ");
+        String surname = sc.nextLine();
+        System.out.print("Enter child's birthdate (dd/mm/yyyy): ");
+        String birthDate = sc.nextLine();
+        System.out.print("Enter child's IQ: ");
+        int iq = sc.nextInt();
+        Human childAdopt = new Human(name, surname, birthDate, iq);
+        childAdopt.setGender(gender);
+        return childAdopt;
     }
 
 
