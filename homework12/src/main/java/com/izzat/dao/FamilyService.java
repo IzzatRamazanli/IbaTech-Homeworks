@@ -62,6 +62,11 @@ public class FamilyService {
         else System.out.println("Family not exist");
     }
 
+    public void deleteFamilyByReference(Family f) {
+        if (dao.deleteFamily(f)) System.out.println("Deleted");
+        else System.out.println("Family not exist");
+    }
+
 
     public Family bornChild(Family family) throws ParseException {
         Random ry = new Random();

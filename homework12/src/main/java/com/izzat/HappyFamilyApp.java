@@ -138,15 +138,7 @@ public class HappyFamilyApp {
 
     private void deletingFamily() {
         System.out.println("Family count in database:" + CONTROLLER.count());
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter ID for deletion: ");
-        int index = sc.nextInt();
-        try {
-            CONTROLLER.deleteFamilyByIndex(index);
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("Entered ID doesn't exist in database!");
-            deletingFamily();
-        }
+        CONTROLLER.deleteFamilyByReference(getFamilyById());
     }
 
     private void editFamily() throws ParseException {
@@ -201,10 +193,12 @@ public class HappyFamilyApp {
     private int requestNumber() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number: ");
+        int num;
         try {
-            return sc.nextInt();
+            num = sc.nextInt();
+            return num;
         } catch (InputMismatchException e) {
-            System.out.println(e.getMessage());
+            System.out.println("False input, try again!");
             requestNumber();
         }
         return 0;

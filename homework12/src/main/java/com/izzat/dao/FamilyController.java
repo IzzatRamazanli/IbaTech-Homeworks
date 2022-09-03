@@ -44,6 +44,10 @@ public class FamilyController {
         service.deleteFamilyByIndex(index);
     }
 
+    public void deleteFamilyByReference(Family f) {
+        service.deleteFamilyByReference(f);
+    }
+
     public Family bornChild(Family family) throws ParseException {
         return service.bornChild(family);
     }
