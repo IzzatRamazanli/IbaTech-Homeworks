@@ -110,8 +110,8 @@ public class FamilyService {
 
     //implemented for generate random name belong to gender
     private String randomName(Human child) {
-        List<String> nameMan = List.of("Barny", "Bill", "Jeff", "Messi", "Neymar", "Ben", "Tom", "Tim", "Alex", "Max");
-        List<String> nameWoman = List.of("Adaline", "Monica", "Alice", "Emmy", "Fiona", "Cindy", "Elena", "Gal", "Natalie", "Scarlet");
+        List<String> nameMan = List.of("Barny", "Bill", "Jeff", "Messi", "Neymar", "Ben", "Tom", "Toby", "Alex", "Max");
+        List<String> nameWoman = List.of("Adaline", "Monica", "Alice", "Emmy", "Fiona", "Armas", "Elena", "Gal", "Natalie", "Scarlet");
         Random rd = new Random();
         int i = rd.nextInt(10);
         if (child instanceof Man) return nameMan.get(i);
