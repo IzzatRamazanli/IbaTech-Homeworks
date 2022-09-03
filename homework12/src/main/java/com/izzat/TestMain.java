@@ -2,11 +2,11 @@ package com.izzat;
 
 
 import java.text.ParseException;
-import java.util.Scanner;
+
 
 public class TestMain {
     public static void main(String[] args) throws ParseException {
-        HappyFamilyApp app = new HappyFamilyApp();
+        FamilyApplication app = new FamilyApplication();
         while (app.start()) {
             if (!app.start()) break;
         }

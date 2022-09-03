@@ -16,7 +16,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Set;
 
-public class HappyFamilyApp {
+public class FamilyApplication {
 
     private static final FamilyController CONTROLLER = configuration();
 
