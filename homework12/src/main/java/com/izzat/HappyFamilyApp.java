@@ -12,28 +12,13 @@ import com.izzat.pets.DomesticCat;
 
 import java.text.ParseException;
 import java.util.HashSet;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Set;
 
 public class HappyFamilyApp {
 
     private static final FamilyController CONTROLLER = configuration();
-    //private Scanner IN = new Scanner(System.in);
-//    private static final Man fatherJohn;
-//    private static final Woman motherJane;
-//    private static final Man father;
-//    private static final Woman mother;
-//
-//    static {
-//        try {
-//            fatherJohn = new Man("John", "Maxwell", "12/12/1985", 98);
-//            motherJane = new Woman("Jane", "Maxwell", "04/07/1995", 96);
-//            father = new Man("Father", "Father", "10/12/1983", 99);
-//            mother = new Woman("Mother", "Mother", "15/02/1993", 98);
-//        } catch (ParseException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 
     public boolean start() throws ParseException {
         commands();
@@ -45,45 +30,27 @@ public class HappyFamilyApp {
             return false;
         } else {
             switch (command) {
-                case "1":
+                case "1" -> {
                     fillWithTestData();
                     System.out.println("Data saved successfully!");
-                    break;
-                case "2":
+                }
+                case "2" -> {
                     CONTROLLER.displayAllFamilies();
                     System.out.println("Data displayed successfully!");
-                    break;
-                case "3":
-                    System.out.print("Enter number: ");
-                    int bigger = in.nextInt();
-                    CONTROLLER.getFamiliesBiggerThan(bigger).forEach(System.out::println);
-                    break;
-                case "4":
-                    System.out.print("Enter number: ");
-                    int less = in.nextInt();
-                    CONTROLLER.getFamiliesLessThan(less).forEach(System.out::println);
-                    break;
-                case "5":
-                    System.out.print("Enter number: ");
-                    int members = in.nextInt();
-                    System.out.printf("Result: %d\n", CONTROLLER.countFamiliesWithMemberNumber(members));
-                    break;
-                case "6":
-                    creatingFamily();
-                    break;
-                case "7":
-                    deletingFamily();
-                    break;
-                case "8":
-                    editFamily();
-                    break;
-                case "9":
+                }
+                case "3" -> CONTROLLER.getFamiliesBiggerThan(requestNumber()).forEach(System.out::println);
+                case "4" -> CONTROLLER.getFamiliesLessThan(requestNumber()).forEach(System.out::println);
+                case "5" ->
+                        System.out.printf("Result: %d\n", CONTROLLER.countFamiliesWithMemberNumber(requestNumber()));
+                case "6" -> creatingFamily();
+                case "7" -> deletingFamily();
+                case "8" -> editFamily();
+                case "9" -> {
                     System.out.print("Enter age: ");
                     int age = in.nextInt();
                     CONTROLLER.deleteAllChildrenOlderThan(age);
-                    break;
-                default:
-                    System.out.println("Command not exist, try again please!");
+                }
+                default -> System.out.println("Command not exist, try again please!");
             }
         }
         return true;
@@ -229,6 +196,18 @@ public class HappyFamilyApp {
         Human childAdopt = new Human(name, surname, birthDate, iq);
         childAdopt.setGender(gender);
         return childAdopt;
+    }
+
+    private int requestNumber() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number: ");
+        try {
+            return sc.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println(e.getMessage());
+            requestNumber();
+        }
+        return 0;
     }
 
 
