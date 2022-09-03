@@ -3,6 +3,7 @@ package com.izzat.dao;
 import com.izzat.Family;
 import com.izzat.Human;
 import com.izzat.abstracts.Pet;
+import com.izzat.exception.FamilyOverflowException;
 import com.izzat.humans.Man;
 import com.izzat.humans.Woman;
 
@@ -49,11 +50,13 @@ public class FamilyController {
     }
 
     public Family bornChild(Family family) throws ParseException {
-        return service.bornChild(family);
+        if (family.countFamily() <= 5) return service.bornChild(family);
+        else throw new FamilyOverflowException("Family size is large");
     }
 
     public Family adoptChild(Human child, Family family) {
-        return service.adoptChild(child, family);
+        if (family.countFamily() <= 5) return service.adoptChild(child, family);
+        else throw new FamilyOverflowException("Family size is large");
     }
 
     public void deleteAllChildrenOlderThan(int age) {
