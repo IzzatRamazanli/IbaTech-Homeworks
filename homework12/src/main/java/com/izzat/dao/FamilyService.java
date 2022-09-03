@@ -128,7 +128,6 @@ public class FamilyService {
             }
             dao.saveFamily(x);
         });
-
     }
 
     public int count() {

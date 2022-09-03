@@ -45,11 +45,7 @@ public class FamilyApplication {
                 case "6" -> creatingFamily();
                 case "7" -> deletingFamily();
                 case "8" -> editFamily();
-                case "9" -> {
-                    System.out.print("Enter age: ");
-                    int age = in.nextInt();
-                    CONTROLLER.deleteAllChildrenOlderThan(age);
-                }
+                case "9" -> CONTROLLER.deleteAllChildrenOlderThan(requestNumber());
                 default -> System.out.println("Command not exist, try again please!");
             }
         }
@@ -192,7 +188,7 @@ public class FamilyApplication {
 
     private int requestNumber() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter number: ");
+        System.out.print("Enter: ");
         int num;
         try {
             num = sc.nextInt();
