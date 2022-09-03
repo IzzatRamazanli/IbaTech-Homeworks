@@ -77,9 +77,13 @@ public class HappyFamilyApp {
                 case "8":
                     editFamily();
                     break;
+                case "9":
+                    System.out.print("Enter age: ");
+                    int age = in.nextInt();
+                    CONTROLLER.deleteAllChildrenOlderThan(age);
+                    break;
                 default:
                     System.out.println("Command not exist, try again please!");
-
             }
         }
         return true;
@@ -101,7 +105,6 @@ public class HappyFamilyApp {
                 - 9. Remove all children over the age of majority
                 - Exit
                 """
-
         );
     }
 
