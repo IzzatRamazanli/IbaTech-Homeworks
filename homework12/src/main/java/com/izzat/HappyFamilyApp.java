@@ -71,6 +71,9 @@ public class HappyFamilyApp {
                 case "6":
                     creatingFamily();
                     break;
+                case "7":
+                    deletingFamily();
+                    break;
                 default:
                     System.out.println("Command not exist, try again please!");
 
@@ -155,6 +158,20 @@ public class HappyFamilyApp {
 
         Family f = CONTROLLER.createNewFamily(mother, father);
         return f;
+
+    }
+
+    private void deletingFamily() {
+        System.out.println("Family count in database:" + CONTROLLER.count());
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter ID for deletion: ");
+        int index = sc.nextInt();
+        try {
+            CONTROLLER.deleteFamilyByIndex(index);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Entered ID doesn't exist in database!");
+            deletingFamily();
+        }
 
     }
 
