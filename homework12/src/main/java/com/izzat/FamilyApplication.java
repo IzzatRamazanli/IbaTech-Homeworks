@@ -144,10 +144,22 @@ public class FamilyApplication {
         String command = sc.nextLine();
         switch (command) {
             case "1":
-                CONTROLLER.bornChild(getFamilyById());
+                try {
+                    CONTROLLER.bornChild(getFamilyById());
+                } catch (NullPointerException npe) {
+                    System.out.println("Null data");
+                } catch (IndexOutOfBoundsException iob) {
+                    System.out.println("Family not exist");
+                }
                 break;
             case "2":
-                CONTROLLER.adoptChild(adoptChild(), getFamilyById());
+                try {
+                    CONTROLLER.adoptChild(adoptChild(), getFamilyById());
+                } catch (NullPointerException npe) {
+                    System.out.println("Null data");
+                } catch (IndexOutOfBoundsException iob) {
+                    System.out.println("Family not exist");
+                }
                 break;
             case "3":
                 start();
@@ -160,13 +172,7 @@ public class FamilyApplication {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Family ID: ");
         int id = sc.nextInt();
-        try {
-            return CONTROLLER.getFamilyById(id);
-        } catch (IndexOutOfBoundsException iob) {
-            System.out.println(iob.getMessage());
-            getFamilyById();
-        }
-        return null;
+        return CONTROLLER.getFamilyById(id);
     }
 
     private Human adoptChild() throws ParseException {
