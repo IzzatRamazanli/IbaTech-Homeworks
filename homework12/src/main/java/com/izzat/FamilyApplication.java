@@ -22,7 +22,7 @@ public class FamilyApplication {
 
     public boolean start() throws ParseException {
         commands();
-        System.out.print("Enter command ro run: ");
+        System.out.print("Enter command to run: ");
         Scanner in = new Scanner(System.in);
         String command = in.nextLine();
         if (command.equalsIgnoreCase("exit")) {
