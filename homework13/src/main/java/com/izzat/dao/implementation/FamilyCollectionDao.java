@@ -1,5 +1,6 @@
 package com.izzat.dao.implementation;
 
+import com.izzat.filebase.FamilySaver;
 import com.izzat.model.Family;
 import com.izzat.dao.FamilyDao;
 
@@ -9,11 +10,11 @@ import java.util.Optional;
 
 public class FamilyCollectionDao implements FamilyDao {
 
-    private final List<Family> fl = new ArrayList<>();
+    private List<Family> families = new ArrayList<>();
 
     @Override
     public List<Family> getAllFamilies() {
-        return fl;
+        return families;
     }
 
     @Override
@@ -24,7 +25,7 @@ public class FamilyCollectionDao implements FamilyDao {
     @Override
     public boolean deleteFamily(int index) {
         if (findByIndex(index).isPresent()) {
-            fl.remove(fl.get(index));
+            families.remove(families.get(index));
             return true;
         }
         return false;
@@ -33,7 +34,7 @@ public class FamilyCollectionDao implements FamilyDao {
     @Override
     public boolean deleteFamily(Family f) {
         if (findByReference(f).isPresent()) {
-            fl.remove(f);
+            families.remove(f);
             return true;
         }
         return false;
@@ -42,22 +43,31 @@ public class FamilyCollectionDao implements FamilyDao {
     @Override
     public void saveFamily(Family f) {
         if (findByReference(f).isPresent()) {
-            fl.set(fl.indexOf(f), f);
-        } else fl.add(f);
+            families.set(families.indexOf(f), f);
+        } else families.add(f);
+    }
+
+    @Override
+    public void save() {
+        FamilySaver.save(families);
+    }
+
+    @Override
+    public void load() {
+        families = FamilySaver.load();
     }
 
     private Optional<Family> findByIndex(int index) {
-        Optional<Family> optional = fl.stream()
-                .filter(family -> family.equals(fl.get(index)))
+        return families.stream()
+                .filter(family -> family.equals(families.get(index)))
                 .findFirst();
-        return optional;
     }
 
     private Optional<Family> findByReference(Family f) {
-        Optional<Family> optional = fl.stream()
+        return families.stream()
                 .filter(family -> family.equals(f))
                 .findFirst();
-        return optional;
+
     }
 
 
