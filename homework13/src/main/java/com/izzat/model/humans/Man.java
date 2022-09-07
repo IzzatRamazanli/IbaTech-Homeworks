@@ -1,8 +1,8 @@
-package com.izzat.humans;
+package com.izzat.model.humans;
 
 import com.izzat.model.Family;
 import com.izzat.model.Human;
-import com.izzat.enums.DayOfWeek;
+import com.izzat.model.enums.DayOfWeek;
 
 import java.io.Serializable;
 import java.text.ParseException;

@@ -1,9 +1,8 @@
-package com.izzat.pets;
+package com.izzat.model.pets;
 
 import com.izzat.abstracts.Pet;
-import com.izzat.enums.Species;
+import com.izzat.model.enums.Species;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class Fish extends Pet {

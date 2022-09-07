@@ -1,7 +1,7 @@
 package izzat.abstracts;
 
 import com.izzat.abstracts.Pet;
-import com.izzat.pets.Dog;
+import com.izzat.model.pets.Dog;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

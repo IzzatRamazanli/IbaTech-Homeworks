@@ -4,9 +4,9 @@ import com.izzat.model.Family;
 import com.izzat.model.Human;
 import com.izzat.abstracts.Pet;
 import com.izzat.dao.implementation.FamilyCollectionDao;
-import com.izzat.humans.Man;
-import com.izzat.humans.Woman;
-import com.izzat.pets.Dog;
+import com.izzat.model.humans.Man;
+import com.izzat.model.humans.Woman;
+import com.izzat.model.pets.Dog;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

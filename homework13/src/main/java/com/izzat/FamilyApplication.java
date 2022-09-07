@@ -5,12 +5,12 @@ import com.izzat.dao.FamilyController;
 import com.izzat.dao.FamilyDao;
 import com.izzat.dao.FamilyService;
 import com.izzat.dao.implementation.FamilyCollectionDao;
-import com.izzat.humans.Man;
-import com.izzat.humans.Woman;
+import com.izzat.model.humans.Man;
+import com.izzat.model.humans.Woman;
 import com.izzat.model.Family;
 import com.izzat.model.Human;
-import com.izzat.pets.Dog;
-import com.izzat.pets.DomesticCat;
+import com.izzat.model.pets.Dog;
+import com.izzat.model.pets.DomesticCat;
 
 import java.text.ParseException;
 import java.util.HashSet;

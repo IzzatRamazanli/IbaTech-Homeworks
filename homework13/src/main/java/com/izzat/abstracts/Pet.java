@@ -1,6 +1,6 @@
 package com.izzat.abstracts;
 
-import com.izzat.enums.Species;
+import com.izzat.model.enums.Species;
 
 import java.io.Serializable;
 import java.util.*;

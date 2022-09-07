@@ -4,8 +4,8 @@ import com.izzat.model.Family;
 import com.izzat.model.Human;
 import com.izzat.abstracts.Pet;
 import com.izzat.exception.FamilyOverflowException;
-import com.izzat.humans.Man;
-import com.izzat.humans.Woman;
+import com.izzat.model.humans.Man;
+import com.izzat.model.humans.Woman;
 
 import java.text.ParseException;
 import java.util.List;

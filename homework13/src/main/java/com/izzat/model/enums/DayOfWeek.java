@@ -1,4 +1,4 @@
-package com.izzat.enums;
+package com.izzat.model.enums;
 
 public enum DayOfWeek {
     MONDAY,

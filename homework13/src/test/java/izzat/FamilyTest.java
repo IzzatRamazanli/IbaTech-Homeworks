@@ -2,8 +2,8 @@ package izzat;
 
 import com.izzat.model.Family;
 import com.izzat.model.Human;
-import com.izzat.humans.Man;
-import com.izzat.humans.Woman;
+import com.izzat.model.humans.Man;
+import com.izzat.model.humans.Woman;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
