@@ -3,7 +3,7 @@ package com.izzat.logging;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class MyLogger {
@@ -11,7 +11,7 @@ public class MyLogger {
 
     private static void log(String msg, Process p) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
-            bw.write(LocalDate.now().format(
+            bw.write(LocalDateTime.now().format(
                     DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm")) + " " + msg + " " + p + "\n");
         } catch (IOException x) {
             System.out.println(x.getMessage());
