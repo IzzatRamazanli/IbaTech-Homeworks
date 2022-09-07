@@ -12,7 +12,7 @@ public class MyLogger {
     private static void log(String msg, Process p) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
             bw.write(LocalDateTime.now().format(
-                    DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm")) + " " + msg + " " + p + "\n");
+                    DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm")) + " " + msg + "[ " + p + " ]" + "\n");
         } catch (IOException x) {
             System.out.println(x.getMessage());
         }
