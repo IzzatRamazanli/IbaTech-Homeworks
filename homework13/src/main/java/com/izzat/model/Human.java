@@ -3,6 +3,7 @@ package com.izzat.model;
 import com.izzat.enums.DayOfWeek;
 import com.izzat.humans.Man;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -10,8 +11,9 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
 
-public class Human {
+public class Human implements Serializable {
     private static final SimpleDateFormat SDF = new SimpleDateFormat("dd/MM/yyyy");
+    private static final long serialVersionID = 1L;
     private String name;
     private String gender;
     private String surname;

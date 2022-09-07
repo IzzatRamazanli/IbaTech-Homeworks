@@ -4,10 +4,12 @@ import com.izzat.model.Family;
 import com.izzat.model.Human;
 import com.izzat.enums.DayOfWeek;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.util.Map;
 
-public final class Man extends Human {
+public final class Man extends Human implements Serializable {
+    private static final long serialVersionID = 1L;
     public Man() {
         super.setSchedule(super.getSchedule());
     }

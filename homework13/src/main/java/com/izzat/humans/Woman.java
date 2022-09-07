@@ -5,13 +5,15 @@ import com.izzat.model.Human;
 import com.izzat.enums.DayOfWeek;
 import com.izzat.interfaces.HumanCreator;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public final class Woman extends Human implements HumanCreator {
+public final class Woman extends Human implements HumanCreator, Serializable {
+    private static final long serialVersionID = 1L;
     public Woman() {
         super.setSchedule(super.getSchedule());
     }
