@@ -7,6 +7,8 @@ import com.izzat.dao.FamilyService;
 import com.izzat.dao.implementation.FamilyCollectionDao;
 import com.izzat.humans.Man;
 import com.izzat.humans.Woman;
+import com.izzat.model.Family;
+import com.izzat.model.Human;
 import com.izzat.pets.Dog;
 import com.izzat.pets.DomesticCat;
 

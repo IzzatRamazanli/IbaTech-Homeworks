@@ -1,7 +1,7 @@
 package com.izzat.interfaces;
 
-import com.izzat.Family;
-import com.izzat.Human;
+import com.izzat.model.Family;
+import com.izzat.model.Human;
 
 import java.text.ParseException;
 

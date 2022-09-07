@@ -1,4 +1,4 @@
-package com.izzat;
+package com.izzat.model;
 
 import com.izzat.enums.DayOfWeek;
 import com.izzat.humans.Man;

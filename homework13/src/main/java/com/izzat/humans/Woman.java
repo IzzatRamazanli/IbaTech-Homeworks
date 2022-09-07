@@ -1,7 +1,7 @@
 package com.izzat.humans;
 
-import com.izzat.Family;
-import com.izzat.Human;
+import com.izzat.model.Family;
+import com.izzat.model.Human;
 import com.izzat.enums.DayOfWeek;
 import com.izzat.interfaces.HumanCreator;
 

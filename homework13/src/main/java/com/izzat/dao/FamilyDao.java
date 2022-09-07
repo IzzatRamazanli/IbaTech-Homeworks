@@ -1,6 +1,6 @@
 package com.izzat.dao;
 
-import com.izzat.Family;
+import com.izzat.model.Family;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package izzat;
 
-import com.izzat.Human;
+import com.izzat.model.Human;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;

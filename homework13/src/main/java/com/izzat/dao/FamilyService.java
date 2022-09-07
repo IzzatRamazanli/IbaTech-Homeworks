@@ -1,15 +1,13 @@
 package com.izzat.dao;
 
-import com.izzat.Family;
-import com.izzat.Human;
+import com.izzat.model.Family;
+import com.izzat.model.Human;
 import com.izzat.abstracts.Pet;
 import com.izzat.humans.Man;
 import com.izzat.humans.Woman;
 
 import java.text.ParseException;
-import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class FamilyService {
     private final FamilyDao dao;

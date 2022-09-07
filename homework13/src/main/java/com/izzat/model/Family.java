@@ -1,10 +1,12 @@
-package com.izzat;
+package com.izzat.model;
 
 import com.izzat.abstracts.Pet;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Family {
+public class Family implements Serializable {
+    private static final long serialVersionID = 1L;
     private Human mother;
     private Human father;
     private List<Human> children;
