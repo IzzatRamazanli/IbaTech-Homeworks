@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.*;
 
 public class Family implements Serializable {
-    private static final long serialVersionID = 1L;
+    private static final long serialVersionUID = 1L;
     private Human mother;
     private Human father;
     private List<Human> children;

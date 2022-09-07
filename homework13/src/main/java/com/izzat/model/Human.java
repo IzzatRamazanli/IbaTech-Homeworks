@@ -13,7 +13,7 @@ import java.util.Objects;
 
 public class Human implements Serializable {
     private static final SimpleDateFormat SDF = new SimpleDateFormat("dd/MM/yyyy");
-    private static final long serialVersionID = 1L;
+    private static final long serialVersionUID = 1L;
     private String name;
     private String gender;
     private String surname;

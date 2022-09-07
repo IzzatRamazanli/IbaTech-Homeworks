@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.*;
 
 public abstract class Pet implements Serializable {
-    private static final long serialVersionID = 1L;
+    private static final long serialVersionUID = 1L;
     private Species species;
     private String nickName;
     private int age;
