@@ -1,7 +1,7 @@
 package com.izzat.dao.implementation;
 
 import com.izzat.filebase.FamilySaver;
-import com.izzat.logging.Logger;
+import com.izzat.logging.MyLogger;
 import com.izzat.model.Family;
 import com.izzat.dao.FamilyDao;
 
@@ -27,7 +27,7 @@ public class FamilyCollectionDao implements FamilyDao {
     public boolean deleteFamily(int index) {
         if (findByIndex(index).isPresent()) {
             families.remove(families.get(index));
-            Logger.info("Family with index " + index + " deleted");
+            MyLogger.info("Family with index " + index + " deleted");
             return true;
         }
         return false;
@@ -37,7 +37,7 @@ public class FamilyCollectionDao implements FamilyDao {
     public boolean deleteFamily(Family f) {
         if (findByReference(f).isPresent()) {
             families.remove(f);
-            Logger.info(f.getFather().getSurname()+" family deleted");
+            MyLogger.info(f.getFather().getSurname()+" family deleted");
             return true;
         }
         return false;
@@ -48,19 +48,19 @@ public class FamilyCollectionDao implements FamilyDao {
         if (findByReference(f).isPresent()) {
             families.set(families.indexOf(f), f);
         } else families.add(f);
-        Logger.info(f.getFather().getSurname()+" family saved");
+        MyLogger.info(f.getFather().getSurname()+" family saved");
     }
 
     @Override
     public void save() {
         FamilySaver.save(families);
-        Logger.info("Families saved to file");
+        MyLogger.info("Families saved to file");
     }
 
     @Override
     public void load() {
         families = FamilySaver.load();
-        Logger.info("Family loaded from file");
+        MyLogger.info("Family loaded from file");
     }
 
     private Optional<Family> findByIndex(int index) {

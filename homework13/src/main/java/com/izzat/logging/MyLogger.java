@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Logger {
+public class MyLogger {
     private static final String path = "application.log";
 
     private static void log(String msg, Process p) {

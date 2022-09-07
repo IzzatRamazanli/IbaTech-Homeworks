@@ -1,5 +1,6 @@
 package com.izzat.filebase;
 
+import com.izzat.logging.MyLogger;
 import com.izzat.model.Family;
 
 import java.io.*;
@@ -13,7 +14,7 @@ public class FamilySaver {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path))) {
             oos.writeObject(families);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            MyLogger.error("Error while saving data to file");
         }
     }
 
@@ -23,6 +24,7 @@ public class FamilySaver {
             obj = in.readObject();
             return new ArrayList<>((List<Family>) obj);
         } catch (IOException | ClassNotFoundException e) {
+            MyLogger.error("Error while loading data from file");
             throw new RuntimeException(e);
         }
 

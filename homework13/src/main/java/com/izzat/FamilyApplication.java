@@ -5,6 +5,7 @@ import com.izzat.dao.FamilyController;
 import com.izzat.dao.FamilyDao;
 import com.izzat.dao.FamilyService;
 import com.izzat.dao.implementation.FamilyCollectionDao;
+import com.izzat.logging.MyLogger;
 import com.izzat.model.humans.Man;
 import com.izzat.model.humans.Woman;
 import com.izzat.model.Family;
@@ -163,8 +164,10 @@ public class FamilyApplication {
                     CONTROLLER.adoptChild(adoptChild(), getFamilyById());
                 } catch (NullPointerException npe) {
                     System.out.println("Null data");
+                    MyLogger.error(npe.getMessage());
                 } catch (IndexOutOfBoundsException iob) {
                     System.out.println("Family not exist");
+                    MyLogger.error(iob.getMessage());
                 }
                 break;
             case "3":
@@ -207,6 +210,7 @@ public class FamilyApplication {
             return num;
         } catch (InputMismatchException e) {
             System.out.println("False input, try again!");
+            MyLogger.error(e.getMessage());
             requestNumber();
         }
         return 0;
