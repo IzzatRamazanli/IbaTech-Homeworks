@@ -48,6 +48,8 @@ public class FamilyApplication {
                 case "7" -> deletingFamily();
                 case "8" -> editFamily();
                 case "9" -> CONTROLLER.deleteAllChildrenOlderThan(requestNumber());
+                case "10" -> saveData();
+                case "11" -> loadData();
                 default -> System.out.println("Command not exist, try again please!");
             }
         }
@@ -68,6 +70,8 @@ public class FamilyApplication {
                   - 2. Adopt a child
                   - 3. Return to main menu \s
                 - 9. Remove all children over the age of majority
+                - 10. Save data to file
+                - 11. Load data from file
                 - Exit
                 """
         );
@@ -206,6 +210,14 @@ public class FamilyApplication {
             requestNumber();
         }
         return 0;
+    }
+
+    public void saveData() {
+        CONTROLLER.saveData();
+    }
+
+    public void loadData() {
+        CONTROLLER.loadData();
     }
 
 
