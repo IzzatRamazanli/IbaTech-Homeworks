@@ -49,6 +49,14 @@ public class FamilyController {
         service.deleteFamilyByReference(f);
     }
 
+    public void saveData() {
+        service.saveData();
+    }
+
+    public void loadData() {
+        service.loadData();
+    }
+
     public Family bornChild(Family family) throws ParseException {
         if (family.countFamily() <= 5) return service.bornChild(family);
         else throw new FamilyOverflowException("Family size is large");

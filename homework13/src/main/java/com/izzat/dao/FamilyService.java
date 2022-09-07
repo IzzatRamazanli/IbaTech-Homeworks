@@ -65,6 +65,15 @@ public class FamilyService {
         else System.out.println("Family not exist");
     }
 
+    public void saveData() {
+        dao.save();
+
+    }
+
+    public void loadData() {
+        dao.load();
+    }
+
 
     public Family bornChild(Family family) throws ParseException {
         Random ry = new Random();
