@@ -216,11 +216,11 @@ public class FamilyApplication {
         return 0;
     }
 
-    public void saveData() {
+    private void saveData() {
         CONTROLLER.saveData();
     }
 
-    public void loadData() {
+    private void loadData() {
         CONTROLLER.loadData();
     }
 
