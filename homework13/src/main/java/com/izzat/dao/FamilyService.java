@@ -1,11 +1,13 @@
 package com.izzat.dao;
 
+import com.izzat.logging.MyLogger;
 import com.izzat.model.Family;
 import com.izzat.model.Human;
 import com.izzat.abstracts.Pet;
 import com.izzat.model.humans.Man;
 import com.izzat.model.humans.Woman;
 
+import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.*;
 
@@ -67,11 +69,16 @@ public class FamilyService {
 
     public void saveData() {
         dao.save();
-
     }
 
     public void loadData() {
-        dao.load();
+        try {
+            dao.load();
+        } catch (FileNotFoundException fne) {
+            System.out.println("File not found");
+            MyLogger.error("File not found");
+        }
+
     }
 
 

@@ -2,6 +2,7 @@ package com.izzat.dao;
 
 import com.izzat.model.Family;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 public interface FamilyDao {
@@ -17,5 +18,5 @@ public interface FamilyDao {
     void saveFamily(Family f);
 
     void save();
-    void load();
+    void load() throws FileNotFoundException;
 }
