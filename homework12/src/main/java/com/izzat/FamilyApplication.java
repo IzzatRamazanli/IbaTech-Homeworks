@@ -11,6 +11,7 @@ import com.izzat.pets.Dog;
 import com.izzat.pets.DomesticCat;
 
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -100,12 +101,12 @@ public class FamilyApplication {
         String mName = sc.nextLine();
         System.out.print("Enter mother's surname: ");
         String mSurname = sc.nextLine();
-        System.out.print("Enter mother's birth year : ");
-        String mBirthYear = sc.nextLine();
+        System.out.print("Enter mother's birth year: ");
+        String mBirthYear = getYear();
         System.out.print("Enter mother's birth month : ");
-        String mBirthMonth = sc.nextLine();
+        String mBirthMonth = getMonth();
         System.out.print("Enter mother's birthday : ");
-        String mBirthDay = sc.nextLine();
+        String mBirthDay = getDay();
         String mBirthDate = mBirthDay + "/" + mBirthMonth + "/" + mBirthYear;
         System.out.print("Enter mother's iq : ");
         int mIq = sc.nextInt();
@@ -116,12 +117,12 @@ public class FamilyApplication {
         String fName = sc.nextLine();
         System.out.print("Enter father's surname: ");
         String fSurname = sc.nextLine();
-        System.out.print("Enter father's birth year : ");
-        String fBirthYear = sc.nextLine();
+        System.out.print("Enter father's birth year: ");
+        String fBirthYear = getYear();
         System.out.print("Enter father's birth month : ");
-        String fBirthMonth = sc.nextLine();
+        String fBirthMonth = getMonth();
         System.out.print("Enter father's birthday : ");
-        String fBirthDay = sc.nextLine();
+        String fBirthDay = getDay();
         String fBirthDate = fBirthDay + "/" + fBirthMonth + "/" + fBirthYear;
         System.out.print("Enter father's iq : ");
         int fIq = sc.nextInt();
@@ -130,6 +131,58 @@ public class FamilyApplication {
         Family f = CONTROLLER.createNewFamily(mother, father);
         return f;
 
+    }
+
+    private String getYear() {
+        Scanner sc = new Scanner(System.in);
+        String year = sc.nextLine();
+        if (!validation(year)) {
+            System.out.println("Entered data is not valid");
+            return getYear();
+        }
+        if (Integer.parseInt(year) > LocalDate.now().getYear()) {
+            System.out.println("Entered year is not valid,try again please");
+            return getYear();
+        }
+        return year;
+    }
+
+    private String getMonth() {
+        Scanner sc = new Scanner(System.in);
+        String month = sc.nextLine();
+        if (!validation(month)) {
+            System.out.println("Entered data is not valid");
+            return getMonth();
+        }
+        if (Integer.parseInt(month) > 12 || Integer.parseInt(month) < 0) {
+            System.out.println("Entered month is not valid, try again please");
+            return getMonth();
+        }
+        return month;
+    }
+
+    private String getDay() {
+        Scanner sc = new Scanner(System.in);
+        String day = sc.nextLine();
+        if (!validation(day)) {
+            System.out.println("Entered data is not valid");
+            return getDay();
+        }
+        if (Integer.parseInt(day) > 31 || Integer.parseInt(day) < 0) {
+            System.out.println("Entered day is not valid, try again please");
+            return getDay();
+        }
+        return day;
+    }
+
+
+    private boolean validation(String data) {
+        try {
+            Integer.parseInt(data);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 
     private void deletingFamily() {
